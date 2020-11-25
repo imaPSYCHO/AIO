@@ -9,7 +9,7 @@ if [[ ! "$(command -v sudo)" ]]; then
 fi
 
 until [[ "$newsshpassh" =~ ^[a-zA-Z0-9_]+$ ]]; do
-read -rp " Enter your new Root Password: " echo "paulo"\n
+read -rp " Enter your new Root Password: " echo "paulo" -e newsshpassh
 done
 
 # Check if machine throws bad config error
