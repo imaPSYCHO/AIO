@@ -8,8 +8,7 @@ if [[ ! "$(command -v sudo)" ]]; then
  exit 1
 fi
 
-until [[ "$newsshpassh" = paulo ]]; 
-done
+ $newsshpassh = paulo
 
 # Check if machine throws bad config error
 # Then fix it 
