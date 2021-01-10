@@ -264,7 +264,7 @@ ca /etc/openvpn/ca.crt
 cert /etc/openvpn/xbarts.crt
 key /etc/openvpn/xbarts.key
 duplicate-cn
-dh none
+dh /etc/openvpn/dh.pem
 persist-tun
 persist-key
 persist-remote-ip
@@ -303,7 +303,7 @@ ca /etc/openvpn/ca.crt
 cert /etc/openvpn/xbarts.crt
 key /etc/openvpn/xbarts.key
 duplicate-cn
-dh none
+dh /etc/openvpn/dh.pem
 persist-tun
 persist-key
 persist-remote-ip
@@ -491,6 +491,100 @@ BmZnr+DkUWpmEdRXMUZa4G20XzmWJ8mGtj28Cv65cawcm+XlK+4K1AJzdVA4SU21
 GI6N4u+IY5R04dxjkwd9xWZi
 -----END PRIVATE KEY-----
 EOF10
+ cat <<'EOF28' > /etc/openvpn/dh.pem
+-----BEGIN DH PARAMETERS-----
+MIIBCAKCAQEAodL5T0haJak4JVj2F8ZRs7J3onei/vqmiIENQHEAWaehnfSYzZun
+RPAsQZWB3huw0ion6zh7auXfdM5j2m3aL4NongOqibb10iE4SfJvkQ0TUCQ8iHKK
+0DStpogLLZYDmRwGM3xorapVZv+ecGtqt5qAf7FhQaDEVfvNj/epz8AkTURpFf3Y
+CKvqC2twq7U75hqYffdueD8/zEF2zcvM2p9YhBX1OjZjpJmtpv/Dyr5Nxw+qXlNm
+Rl9DWRpQ4LuQPd+F85vYSylTzmazWSP4TMqBMTnLZR9KuZxspUkxLRP/cvV7XFOL
+kSoH6MYQphbtD/QQI03dPy0iNhN0WeJSewIBAg==
+-----END DH PARAMETERS-----
+EOF28
+ cat <<'EOF29' > /etc/openvpn/ta.key
+#
+# 2048 bit OpenVPN static key
+#
+-----BEGIN OpenVPN Static key V1-----
+b6f74f94f1b6a7df8cd10055810e3fe9
+70b6199c6dd73cb3ec75e4434a43fdd9
+55b34faabaffdc57f466201d77ef981a
+6bdd1dcfe7cd7b911bb02d7438bfc796
+a7e481a333f486e6843c50457136ae0c
+793c707fa68723a2513c6db877ae5283
+546dad6b3420ea610ee3300ea94a89c1
+0ddadba2b39f0b3a306cb2817994b0f9
+63d9400c10ae445752d1a10cbf63588d
+1e46f2299163a28ff7d78aa6fb298af4
+b34bd79e0e0f801af8a9060f79156598
+668a7a5e9837f6f61902c35ccb79e666
+51304bfca82a30ac25c498aab747f5c9
+35c3b14c6e7e3f38d70f3cfaf25e6385
+a21a0c83df2c965f45f9040a0f98c7f2
+653bfce368db4237c0c1ba75bf798c64
+-----END OpenVPN Static key V1-----
+EOF29
+ cat <<'EOF30' > /etc/openvpn/CLIENT.key
+-----BEGIN PRIVATE KEY-----
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDLbSCYXQmos7VT
++XbJUorEcsvI0qv0zCe0HCk3QTxs2AYT8oVZAcrFitHqvhaQRt0avv3ZMC2WciTu
+E9qrNUd7sAHJ1K+Og4BPobV7psvJK97bOcppzND7fGA6xm5IaYIzXINp0+k15/OC
+cukjnmWkx/v5KAsT58UppWVS/VbUxA5HlqsqZuWQGQA0Z1SIPwCSSo96nVoQ2om8
+f6NBi83+BDwXDrMBjaqQ7yvfYQ1faHkZhscOmwX45E4+HPvjH1keHgJeivbMwq6r
+ombk1B2HufcTjpnDgYcDiF/xH+LNoqt9ho/fYb9aAjLAK5oGnWseMVQMXfpfqaw7
+ZXbFwSTdAgMBAAECggEBALspTyj/yKg/l2CIkALQf74YxGejdPRIdWsf0cf1rGuU
+IZtuscNfg7lWbKZmeAoMONeny5Rs4DSgFlw5RiHpZjhlim+w0Ej1sjMR3BDFOI+B
+Xowi0pmfCNOo7jyFXugest0gjAPtJY8kNoXZxaiwzmHaYXkun2qT/nG/q8a8MYyU
+pUrpD2PT4r1FJCb9hX2AvSiPj5lMGp78JeuVGvZt2Lk0zkOyKAGGZFv+xtKYTQe3
+P5Cd80scTsZ4RqqFbxht2UjQnHsLAOXnwEqad5dlTM1RxXMnY/mzyeW86FtRdtup
+rzbEBxtRKMPj/22Sok09Pma4JAP+cep56VN0NLoMPv0CgYEA6+5oeBvkDqjN9Y//
+HBA2G0wk6JV8wn7oONxuxTotUcgxhuyUf0o4XhUP8KMaNuRFap9pJ18CqAtx6yhF
+pVrFhe+e8rm5BzP9Xau61Y2+Gu1Eg4x/KngAfMTXiWPmTJfbCi9iAKKQs0VIor4m
++CpkKxbrLW+z4GoUYNBPn/E0aPcCgYEA3LrlmPhCKtSym7G+fGUbTmHfU4hDcekq
+elBfKcxz97DGXilzzhoi5AFYn7HIdp9kw+pcK8vfdw3iJQ2PzOkSP6wTGw6/Otas
+gQVLFtY1r6YyEc0vtsDKicYEeQcKuyNhj5lWJR/itobRuSIReL3daw//HR0nIt30
+9VyVixhkH8sCgYBX18db2P6bmqw8nuWcPEj49uvTET2HaRrreN9hXZzcE06lbtaH
+YkoEdZEexouPHoTeAwZy20Qw7zn2FWOBAoACs0oaE55ZmTjftH323zSF8AuPczMx
+y8ZariuWAvUPVYb/js7Nb7mylbxKo8P8qEPtazYbD7kIeFaoCUdsRLF/1wKBgQC9
+AbTUldBiyJrgQwUvk4wcRCZtasMF6XicH/I84nty3wYdXzVwiGTUBGsU47EaEkbA
+lA+02PBTC6pXvBMkjXc42mnJw4jwIx63pAa2WVrDO3aoU6DFxrQn4U23LNZ9hEBo
+LA7d3z3MugkflBKN51aP9LSpA2udqZ219D+BSbOCnQKBgDO38hQai8fXx8ouEns2
+uizGIH0+fhf0CvvjvEPTjqs9ZT/lBlG/G+aNSwZNNXSdpGo0LA3jwzDdwyn3Ci+E
+m8j9oOcbiz6aJre9i+D70y2FJjOaoCXOKiBEeOvS7zQsaHcjPRQ0O9oV6MWVHGrL
+aE2VWZLgK47HURe2ZfKWpPPr
+-----END PRIVATE KEY-----
+EOF30
+ cat <<'EOF31' > /etc/openvpn/CLIENT.crt
+-----BEGIN CERTIFICATE-----
+MIIE9zCCA9+gAwIBAgIRALXVD5HWSst6aE7gXts3u/0wDQYJKoZIhvcNAQELBQAw
+gZsxCzAJBgNVBAYTAlBIMREwDwYDVQQIDAhCYXRhbmdhczEQMA4GA1UEBwwHTmFz
+dWdidTEXMBUGA1UECgwOR0FNRVJTIFZQTiBIVUIxETAPBgNVBAsMCFBIQ09STkVS
+MRUwEwYDVQQDDAxHVlBOSFVCLUp1YW4xJDAiBgkqhkiG9w0BCQEWFWltYXBzeWNo
+bzI4QGdtYWlsLmNvbTAgFw0yMDEyMTAyMDA4NDBaGA8yMDYwMTEzMDIwMDg0MFow
+gZ0xCzAJBgNVBAYTAlBIMREwDwYDVQQIDAhCYXRhbmdhczEQMA4GA1UEBwwHTmFz
+dWdidTEXMBUGA1UECgwOR0FNRVJTIFZQTiBIVUIxETAPBgNVBAsMCFBIQ09STkVS
+MRcwFQYDVQQDDA5DbGllbnQtR1ZQTkhVQjEkMCIGCSqGSIb3DQEJARYVaW1hcHN5
+Y2hvMjhAZ21haWwuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+y20gmF0JqLO1U/l2yVKKxHLLyNKr9MwntBwpN0E8bNgGE/KFWQHKxYrR6r4WkEbd
+Gr792TAtlnIk7hPaqzVHe7ABydSvjoOAT6G1e6bLySve2znKaczQ+3xgOsZuSGmC
+M1yDadPpNefzgnLpI55lpMf7+SgLE+fFKaVlUv1W1MQOR5arKmblkBkANGdUiD8A
+kkqPep1aENqJvH+jQYvN/gQ8Fw6zAY2qkO8r32ENX2h5GYbHDpsF+OROPhz74x9Z
+Hh4CXor2zMKuq6Jm5NQdh7n3E46Zw4GHA4hf8R/izaKrfYaP32G/WgIywCuaBp1r
+HjFUDF36X6msO2V2xcEk3QIDAQABo4IBLjCCASowCQYDVR0TBAIwADAdBgNVHQ4E
+FgQUj9y5k66cDjLmf8WzlK9FKbxefWQwgdsGA1UdIwSB0zCB0IAUxWq10dw09yPX
+/yuTYoaORYkO5gOhgaGkgZ4wgZsxCzAJBgNVBAYTAlBIMREwDwYDVQQIDAhCYXRh
+bmdhczEQMA4GA1UEBwwHTmFzdWdidTEXMBUGA1UECgwOR0FNRVJTIFZQTiBIVUIx
+ETAPBgNVBAsMCFBIQ09STkVSMRUwEwYDVQQDDAxHVlBOSFVCLUp1YW4xJDAiBgkq
+hkiG9w0BCQEWFWltYXBzeWNobzI4QGdtYWlsLmNvbYIUe6+cR+UcT7wOjogbu28w
+r6rnsNQwEwYDVR0lBAwwCgYIKwYBBQUHAwIwCwYDVR0PBAQDAgeAMA0GCSqGSIb3
+DQEBCwUAA4IBAQAR5nGhLVD8f9sB8uIabUFde2CjfiFvVDVih85eFR+huUtruHvQ
+GCsFAP9MVaRFCYe2R7qtNfrhzMREXA+BVLiBphc0YDlybhiLl28UUTr2iVXVU7UF
+RRxodpEpqMeeB3It7fPsa4b/rQ6NAJZRcgVj/kbjgUd8K0NZaavoxuNOXziSuFnr
+o7CPKMm3fft6cni7HeVEKngvWeU0HBBNA666nZsmJUMKKSi5auT84vwRHseiCoIq
+0VQb5LRGApNlP+uILhbaLicVf2sm8WoMy1Lf0kTrU4S98hK36dPo9VoNbeaV5uAV
+id/+FaOyj+XIcduRalWzjojj9RsrLhWCe6Da
+-----END CERTIFICATE-----
+EOF31
 
  # Getting all dns inside resolv.conf then use as Default DNS for our openvpn server
  #grep -v '#' /etc/resolv.conf | grep 'nameserver' | grep -E -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | while read -r line; do
@@ -677,6 +771,13 @@ http-proxy-option CUSTOM-HEADER X-Forwarded-For redirect.googlevideo.com
 <ca>
 $(cat /etc/openvpn/ca.crt)
 </ca>
+<cert>
+$(cat /etc/openvpn/CLIENT.crt)
+</cert>
+<key>
+$(cat /etc/openvpn/ta.key)
+$(cat /etc/openvpn/CLIENT.key)
+</key>
 
 EOF152
 
@@ -700,7 +801,13 @@ reneg-sec 0
 <ca>
 $(cat /etc/openvpn/ca.crt)
 </ca>
-
+<cert>
+$(cat /etc/openvpn/CLIENT.crt)
+</cert>
+<key>
+$(cat /etc/openvpn/ta.key)
+$(cat /etc/openvpn/CLIENT.key)
+</key>
 EOF16
 
 cat <<EOF160> /var/www/openvpn/GStories.ovpn
@@ -728,6 +835,13 @@ http-proxy-option CUSTOM-HEADER "Connection: Keep-Alive"
 <ca>
 $(cat /etc/openvpn/ca.crt)
 </ca>
+<cert>
+$(cat /etc/openvpn/CLIENT.crt)
+</cert>
+<key>
+$(cat /etc/openvpn/ta.key)
+$(cat /etc/openvpn/CLIENT.key)
+</key>
 
 EOF160
 
@@ -756,6 +870,13 @@ http-proxy-option CUSTOM-HEADER "Connection: Keep-Alive"
 <ca>
 $(cat /etc/openvpn/ca.crt)
 </ca>
+<cert>
+$(cat /etc/openvpn/CLIENT.crt)
+</cert>
+<key>
+$(cat /etc/openvpn/ta.key)
+$(cat /etc/openvpn/CLIENT.key)
+</key>
 
 EOF17
 
@@ -929,7 +1050,7 @@ cd ~
 
 echo 'clear' > /etc/profile.d/barts.sh
 echo 'echo '' > /var/log/syslog' >> /etc/profile.d/barts.sh
-echo 'screenfetch -p -A Android' >> /etc/profile.d/barts.sh
+echo 'screenfetch -p -A Ubuntu' >> /etc/profile.d/barts.sh
 chmod +x /etc/profile.d/barts.sh
 }
 
@@ -938,7 +1059,7 @@ function ScriptMessage(){
  echo -e " Open release version"
  echo -e ""
  echo -e " Script created by Bonveio"
- echo -e " Edited by XAMJYSS"
+ echo -e " "
 }
 
 
@@ -1033,7 +1154,7 @@ fi
  echo -e " OpenVPN: $OpenVPN_Port1, $OpenVPN_Port2"
  echo -e " NGiNX: $OvpnDownload_Port"
  echo -e " Webmin: 10000"
- echo -e " L2tp IPSec Key: xjvpn13"
+ echo -e " L2tp IPSec Key: imaPSYCHO"
  echo -e ""
  echo -e ""
  echo -e " OpenVPN Configs Download site"
