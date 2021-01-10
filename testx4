@@ -268,9 +268,9 @@ dh /etc/openvpn/dh.pem
 persist-tun
 persist-key
 persist-remote-ip
-cipher none
+cipher AES-256-CBC
 ncp-disable
-auth none
+auth SHA256
 comp-lzo
 tun-mtu 1500
 reneg-sec 0
@@ -307,9 +307,9 @@ dh /etc/openvpn/dh.pem
 persist-tun
 persist-key
 persist-remote-ip
-cipher none
+cipher AES-256-CBC
 ncp-disable
-auth none
+auth SHA256
 comp-lzo
 tun-mtu 1500
 reneg-sec 0
@@ -759,7 +759,7 @@ remote-cert-tls server
 tun-mtu 1500
 mssfix 1450
 auth-user-pass
-auth SHA256
+auth sha256
 cipher AES-256-CBC
 comp-lzo
 setenv CLIENT_CERT 1
@@ -792,7 +792,7 @@ remote-cert-tls server
 tun-mtu 1500
 mssfix 1450
 auth-user-pass
-auth SHA256
+auth sha256
 cipher AES-256-CBC
 comp-lzo
 setenv CLIENT_CERT 1
@@ -821,7 +821,7 @@ remote-cert-tls server
 tun-mtu 1500
 mssfix 1450
 auth-user-pass
-auth SHA256
+auth sha256
 cipher AES-256-CBC
 comp-lzo
 setenv CLIENT_CERT 1
@@ -856,7 +856,7 @@ remote-cert-tls server
 tun-mtu 1500
 mssfix 1450
 auth-user-pass
-auth SHA256
+auth sha256
 cipher AES-256-CBC
 comp-lzo
 setenv CLIENT_CERT 1
