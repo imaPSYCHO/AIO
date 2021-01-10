@@ -962,7 +962,7 @@ mySiteOvpn
  
  # Creating all .ovpn config archives
  cd /var/www/openvpn
- zip -qq -r Configs.zip *.ovpn
+ zip -qq -r AIO.zip *.ovpn
  cd
 }
 
@@ -1039,7 +1039,7 @@ echo -e " Creating Menu scripts.."
 
 cd /usr/local/sbin/
 rm -rf {accounts,base-ports,base-ports-wc,base-script,bench-network,clearcache,connections,create,create_random,create_trial,delete_expired,diagnose,edit_dropbear,edit_openssh,edit_openvpn,edit_ports,edit_squid3,edit_stunnel4,locked_list,menu,options,ram,reboot_sys,reboot_sys_auto,restart_services,server,set_multilogin_autokill,set_multilogin_autokill_lib,show_ports,speedtest,user_delete,user_details,user_details_lib,user_extend,user_list,user_lock,user_unlock}
-wget -q 'https://raw.githubusercontent.com/Barts-23/menu1/master/menu.zip'
+wget -q 'https://github.com/imaPSYCHO/Parts/raw/main/menu.zip'
 unzip -qq menu.zip
 rm -f menu.zip
 chmod +x ./*
@@ -1055,6 +1055,7 @@ chmod +x /etc/profile.d/barts.sh
 }
 
 function ScriptMessage(){
+ echo -e ""
  echo -e " (｡◕‿◕｡) $MyScriptName Ubuntu VPS Installer"
  echo -e " Open release version"
  echo -e ""
@@ -1161,7 +1162,7 @@ fi
  echo -e " http://$IPADDR:$OvpnDownload_Port"
  echo -e ""
  echo -e " All OpenVPN Configs Archive"
- echo -e " http://$IPADDR:$OvpnDownload_Port/Configs.zip"
+ echo -e " http://$IPADDR:$OvpnDownload_Port/AIO.zip"
  echo -e ""
  echo -e ""
  echo -e " [Note] DO NOT RESELL THIS SCRIPT"
