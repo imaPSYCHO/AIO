@@ -43,8 +43,8 @@ Stunnel_Port1='449' # through Dropbear
 Stunnel_Port2='444' # through OpenSSH
 
 # OpenVPN Ports
-OpenVPN_Port1='1194'
-OpenVPN_Port2='69' # take note when you change this port, openvpn sun noload config will not work
+OpenVPN_Port1='112'
+OpenVPN_Port2='25888' # take note when you change this port, openvpn sun noload config will not work
 
 # Privoxy Ports (must be 1024 or higher)
 Privoxy_Port1='8686'
@@ -677,13 +677,7 @@ http-proxy-option CUSTOM-HEADER X-Forwarded-For redirect.googlevideo.com
 <ca>
 $(cat /etc/openvpn/ca.crt)
 </ca>
-<cert>
-$(cat /etc/openvpn/CLIENT.crt)
-</cert>
-<key>
-$(cat /etc/openvpn/ta.key)
-$(cat /etc/openvpn/CLIENT.key)
-</key>
+
 EOF152
 
 cat <<EOF16> /var/www/openvpn/Default.ovpn
@@ -706,13 +700,7 @@ reneg-sec 0
 <ca>
 $(cat /etc/openvpn/ca.crt)
 </ca>
-<cert>
-$(cat /etc/openvpn/CLIENT.crt)
-</cert>
-<key>
-$(cat /etc/openvpn/ta.key)
-$(cat /etc/openvpn/CLIENT.key)
-</key>
+
 EOF16
 
 cat <<EOF160> /var/www/openvpn/GStories.ovpn
@@ -740,13 +728,7 @@ http-proxy-option CUSTOM-HEADER "Connection: Keep-Alive"
 <ca>
 $(cat /etc/openvpn/ca.crt)
 </ca>
-<cert>
-$(cat /etc/openvpn/CLIENT.crt)
-</cert>
-<key>
-$(cat /etc/openvpn/ta.key)
-$(cat /etc/openvpn/CLIENT.key)
-</key>
+
 EOF160
 
 cat <<EOF17> /var/www/openvpn/GGames.ovpn
@@ -774,13 +756,7 @@ http-proxy-option CUSTOM-HEADER "Connection: Keep-Alive"
 <ca>
 $(cat /etc/openvpn/ca.crt)
 </ca>
-<cert>
-$(cat /etc/openvpn/CLIENT.crt)
-</cert>
-<key>
-$(cat /etc/openvpn/ta.key)
-$(cat /etc/openvpn/CLIENT.key)
-</key>
+
 EOF17
 
  # Creating OVPN download site index.html
